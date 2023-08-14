@@ -11,4 +11,6 @@ module com.example.triovisiongame {
 
     opens com.example.triovisiongame to javafx.fxml;
     exports com.example.triovisiongame;
+    exports com.example.triovisiongame.controllers;
+    opens com.example.triovisiongame.controllers to javafx.fxml;
 }

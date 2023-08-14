@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" style="-fx-background-color: #aad7fa;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.triovisiongame.controllers.HomeController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Pane layoutX="5.0" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="590.0" style="-fx-border-color: #000000;" VBox.vgrow="NEVER" />
+    <Label layoutX="14.0" layoutY="4.0" prefHeight="25.0" prefWidth="228.0" text="Welcome to TrioVision Game">
+        <font>
+            <Font name="System Bold" size="16.0" />
+        </font>
+    </Label>
+    <Button layoutX="473.0" layoutY="4.0" mnemonicParsing="false" onAction="#onBtnInstructionsClick" prefHeight="25.0" prefWidth="121.0" text="Instructions">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Button>
+    <Pane layoutX="315.0" layoutY="35.0" prefHeight="58.0" prefWidth="279.0" style="-fx-background-color: #ceddf5; -fx-border-color: #000000;">
+        <children>
+            <Button layoutX="25.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Player 1" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Button>
+            <Button layoutX="153.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Player 2" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Button>
+            <Label layoutX="93.0" layoutY="1.0" prefHeight="25.0" prefWidth="106.0" text="Player Options">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="5.0" layoutY="35.0" prefHeight="58.0" prefWidth="302.0" style="-fx-border-color: #000000; -fx-background-color: #ceddf5;">
+        <children>
+            <Button layoutX="25.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Start Game">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Button>
+            <Button layoutX="153.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Generate">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Button>
+            <Label layoutX="93.0" layoutY="1.0" prefHeight="17.0" prefWidth="99.0" text="Game Options">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+
+    <fx:include layoutX="100.0" layoutY="200.0" fx:id="board" source="board-view.fxml"/>
+
+    <fx:include layoutX="10.0" layoutY="170.0" fx:id="card01" source="card-view.fxml"/>
+    <fx:include layoutX="10.0" layoutY="285.0" fx:id="card02" source="card-view.fxml"/>
+    <fx:include layoutX="10.0" layoutY="400.0" fx:id="card03" source="card-view.fxml"/>
+
+    <fx:include layoutX="510.0" layoutY="170.0" fx:id="card04" source="card-view.fxml"/>
+    <fx:include layoutX="510.0" layoutY="285.0" fx:id="card05" source="card-view.fxml"/>
+    <fx:include layoutX="510.0" layoutY="400.0" fx:id="card06" source="card-view.fxml"/>
+
+</Pane>
