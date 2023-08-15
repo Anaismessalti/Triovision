@@ -17,4 +17,5 @@ public class GameConstants {
     public static final String DISABLE_BG = "-fx-background-color: #aeb0af; ";
 
     public static final String ENABLE_CARD_BG = "-fx-background-color: #ceddf5; ";
+    public static final String CIRCLE = "circle";
 }

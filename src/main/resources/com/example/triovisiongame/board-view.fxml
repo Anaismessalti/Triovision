@@ -23,22 +23,22 @@
                       <RowConstraints maxHeight="74.5" minHeight="74.5" prefHeight="74.5" vgrow="NEVER" />
                   </rowConstraints>
                   <children>
-                      <Circle fx:id="circle5" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle2" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle3" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle12" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle8" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle15" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle14" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                      <Circle fx:id="circle9" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-               <Circle fx:id="circle6" fill="aeb0af" layoutX="260.0" layoutY="273.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-               <Circle fx:id="circle11" fill="aeb0af" layoutX="160.0" layoutY="273.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-               <Circle fx:id="circle10" fill="aeb0af" layoutX="160.0" layoutY="123.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-               <Circle fx:id="circle7" fill="aeb0af" layoutX="260.0" layoutY="198.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-               <Circle fx:id="circle1" fill="aeb0af" layoutX="245.0" layoutY="123.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" />
-               <Circle fx:id="circle4" fill="aeb0af" layoutX="245.0" layoutY="123.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-               <Circle fx:id="circle13" fill="aeb0af" layoutX="45.0" layoutY="48.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-               <Circle fx:id="circle16" fill="aeb0af" layoutX="45.0" layoutY="48.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                      <Circle fx:id="circle5" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle2" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle3" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle12" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle8" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle15" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle14" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                      <Circle fx:id="circle9" fill="#aeb0af" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+               <Circle fx:id="circle6" fill="aeb0af" layoutX="260.0" layoutY="273.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+               <Circle fx:id="circle11" fill="aeb0af" layoutX="160.0" layoutY="273.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               <Circle fx:id="circle10" fill="aeb0af" layoutX="160.0" layoutY="123.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               <Circle fx:id="circle7" fill="aeb0af" layoutX="260.0" layoutY="198.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+               <Circle fx:id="circle1" fill="aeb0af" layoutX="245.0" layoutY="123.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.halignment="CENTER" />
+               <Circle fx:id="circle4" fill="aeb0af" layoutX="245.0" layoutY="123.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+               <Circle fx:id="circle13" fill="aeb0af" layoutX="45.0" layoutY="48.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+               <Circle fx:id="circle16" fill="aeb0af" layoutX="45.0" layoutY="48.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   </children>
               </GridPane>
           </children>

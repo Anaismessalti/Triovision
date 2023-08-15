@@ -1,18 +1,19 @@
 package com.example.triovisiongame.controllers;
 
+import com.example.triovisiongame.utils.TriovisionUtils;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.List;
+import java.util.Objects;
 
-import static com.example.triovisiongame.common.GameConstants.WHITE;
+import static com.example.triovisiongame.common.GameConstants.CIRCLE;
 
-public class BoardController implements Initializable {
+public class BoardController {
 
     @FXML
     public Circle circle1;
@@ -67,20 +68,40 @@ public class BoardController implements Initializable {
     @FXML
     public Pane boardPane;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        
+
+    public void initializeBoard() {
+        hideNodes();
+        this.boardPane.setStyle("-fx-background-color: #aad7fa; -fx-border-color: #000000; -fx-border-width: 2px 2px 2px 2px;");
+        generateBoard();
     }
 
     public void generateBoard() {
-        this.boardPane.setStyle("-fx-background-color: #aad7fa; -fx-border-color: #000000; -fx-border-width: 2px 2px 2px 2px;");
-        this.circle1.setFill(Color.valueOf(WHITE));
-        this.circle4.setFill(Color.valueOf(WHITE));
-        this.circle6.setFill(Color.valueOf(WHITE));
-        this.circle7.setFill(Color.valueOf(WHITE));
-        this.circle10.setFill(Color.valueOf(WHITE));
-        this.circle11.setFill(Color.valueOf(WHITE));
-        this.circle13.setFill(Color.valueOf(WHITE));
-        this.circle16.setFill(Color.valueOf(WHITE));
+        if(!HomeController.isGameStarted) return;
+
+        hideNodes();
+        List<Integer> boardsToShow = TriovisionUtils.getRandomNumbers();
+        for (Integer number : boardsToShow) {
+            String circleToShow = CIRCLE + number;
+            showNodes(circleToShow);
+        }
+    }
+
+    public void showNodes(String circleToShow) {
+        ObservableList<Node> circles = boardGrid.getChildren();
+        for (Node node : circles) {
+            if(Objects.isNull(node) || Objects.isNull(node.getId())) continue;
+
+            if (node.getId().equals(circleToShow)) {
+                node.setVisible(true);
+            }
+        }
+    }
+
+    public void hideNodes () {
+        ObservableList<Node> circles = boardGrid.getChildren();
+        for (Node node : circles) {
+            if(Objects.isNull(node) || Objects.isNull(node.getId())) continue;
+            node.setVisible(false);
+        }
     }
 }
