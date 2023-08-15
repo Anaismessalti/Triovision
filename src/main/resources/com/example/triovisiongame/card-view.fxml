@@ -17,7 +17,7 @@
                       <RowConstraints maxHeight="143.2" minHeight="10.0" prefHeight="100.2" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                      <GridPane gridLinesVisible="true" prefHeight="114.0" prefWidth="80.0" style="-fx-background-color: #ceddf5;">
+                      <GridPane fx:id="cardGrid" gridLinesVisible="true" prefHeight="114.0" prefWidth="80.0" style="-fx-background-color: #aeb0af;">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,9 +29,9 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                           <children>
-                              <Circle fill="#fff51f" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                              <Circle fill="#9ee049" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                              <Circle fill="#9ee049" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle1" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle2" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle3" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                           </children>
                       </GridPane>
                   </children>
