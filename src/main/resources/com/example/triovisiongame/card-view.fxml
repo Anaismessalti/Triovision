@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<Pane maxHeight="108.0" maxWidth="80.0" minHeight="108.0" minWidth="80.0" prefHeight="108.0" prefWidth="80.0" style="-fx-background-color: #aad7fa;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.triovisiongame.controllers.CardController">
+<Pane maxHeight="108.0" maxWidth="80.0" minHeight="108.0" minWidth="80.0" onMouseClicked="#onCardClick" prefHeight="108.0" prefWidth="80.0" style="-fx-background-color: #aad7fa;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.triovisiongame.controllers.CardController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -30,7 +30,7 @@
                           </rowConstraints>
                           <children>
                               <Circle fx:id="circle1" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Circle fx:id="circle2" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle2" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <Circle fx:id="circle3" fill="#aeb0af" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                           </children>
                       </GridPane>

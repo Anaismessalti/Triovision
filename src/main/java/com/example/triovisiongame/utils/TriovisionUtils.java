@@ -1,9 +1,9 @@
 package com.example.triovisiongame.utils;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import com.example.triovisiongame.controllers.HomeController;
+import javafx.scene.control.Alert;
+
+import java.util.*;
 
 public class TriovisionUtils {
 
@@ -11,14 +11,22 @@ public class TriovisionUtils {
      * The method returns list of 8 unique random numbers in range [1-16]
      * The board pattern will be generated based on this
      */
-    public static List getRandomNumbers() {
-        Integer[] array4x4 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-
-        List<Integer> uniqueRandNumList = Arrays.asList(array4x4);
+    public static List getRandomNumbers(int maxSize) {
+        List<Integer> uniqueRandNumList = new ArrayList<>();
+        for (int i = 1; i <= maxSize; i++) {
+            uniqueRandNumList.add(i);
+        }
         Collections.shuffle(uniqueRandNumList);
-
         uniqueRandNumList = uniqueRandNumList.subList(1, 9);
+
         return uniqueRandNumList;
+    }
+
+    public static void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Trio-vision Game Alert");
+        alert.setContentText(message);
+        alert.show();
     }
 
 

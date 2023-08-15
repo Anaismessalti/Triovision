@@ -1,5 +1,6 @@
 package com.example.triovisiongame.controllers;
 
+import com.example.triovisiongame.utils.TriovisionUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,6 +11,8 @@ import static com.example.triovisiongame.common.GameConstants.*;
 public class HomeController {
     public static boolean isGameStarted = false;
     public static boolean isIsGameCompleted = false;
+    public static int cardsPlayed = 0;
+    public static int p1Score = 0, p2Score = 0;
 
     @FXML
     private Pane gamePane;
@@ -20,32 +23,57 @@ public class HomeController {
     @FXML
     private Button btnStartGame;
 
-    @FXML private CardController card01Controller;
-    @FXML private CardController card02Controller;
-    @FXML private CardController card03Controller;
-    @FXML private CardController card04Controller;
-    @FXML private CardController card05Controller;
-    @FXML private CardController card06Controller;
-    @FXML private CardController card07Controller;
-    @FXML private CardController card08Controller;
-    @FXML private CardController card09Controller;
-    @FXML private CardController card10Controller;
-    @FXML private CardController card11Controller;
-    @FXML private CardController card12Controller;
+    @FXML
+    private CardController card01Controller;
+    @FXML
+    private CardController card02Controller;
+    @FXML
+    private CardController card03Controller;
+    @FXML
+    private CardController card04Controller;
+    @FXML
+    private CardController card05Controller;
+    @FXML
+    private CardController card06Controller;
+    @FXML
+    private CardController card07Controller;
+    @FXML
+    private CardController card08Controller;
+    @FXML
+    private CardController card09Controller;
+    @FXML
+    private CardController card10Controller;
+    @FXML
+    private CardController card11Controller;
+    @FXML
+    private CardController card12Controller;
 
-    @FXML private BoardController boardController;
+    @FXML
+    private BoardController boardController;
 
 
     @FXML
-    protected void onBtnStartGameClick () {
-        isGameStarted = true;
-        gamePane.setStyle("-fx-background-color: #aad7fa; -fx-border-color: #000000;");
-        boardController.initializeBoard();
-        initializeCards();
+    protected void onBtnStartGameClick() {
+        if (isGameStarted) {
+            TriovisionUtils.showAlert("You have already started the game.");
+        } else {
+            isGameStarted = true;
+            gamePane.setStyle("-fx-background-color: #aad7fa; -fx-border-color: #000000;");
+            boardController.initializeBoard();
+            initializeCards();
+        }
     }
 
+    @FXML
+    protected void onBtnGenerateClick() {
+        if (isGameStarted) {
+            boardController.generateBoard();
+        } else {
+            TriovisionUtils.showAlert("Please start the game first. Thanks.");
+        }
+    }
 
-    public void initializeCards () {
+    public void initializeCards() {
         card01Controller.initializeCard(BLUE, RED, RED);
         card02Controller.initializeCard(RED, RED, BLUE);
         card03Controller.initializeCard(RED, YELLOW, GREEN);
@@ -61,7 +89,7 @@ public class HomeController {
     }
 
     @FXML
-    protected void onBtnInstructionsClick () {
+    protected void onBtnInstructionsClick() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("TrioVision Game Instructions");
         alert.setContentText("" +

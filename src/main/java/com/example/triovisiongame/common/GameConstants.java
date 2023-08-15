@@ -8,14 +8,24 @@ public class GameConstants {
 
     public static final String WHITE = "#ffffff";
 
+    public static final int BOARD_WIDTH = 400;
+
+    public static final int BOARD_HEIGHT = 300;
+
+    public static final int CELL_WIDTH = 100;
+
+    public static final int CELL_HEIGHT = 75;
+
     public static final String DISABLE_COLOR = "#aeb0af";
 
     public static final String ENABLE_CARD_COLOR = "#ceddf5";
 
-    public static final String ENABLE_PANE_COLOR = "#aad7fa;";
+    public static final String ENABLE_BOARD_COLOR = "#87bade";
 
     public static final String DISABLE_BG = "-fx-background-color: #aeb0af; ";
-
     public static final String ENABLE_CARD_BG = "-fx-background-color: #ceddf5; ";
+
+    public static final String SELECTED_CARD_BG = "-fx-background-color: #d68989; ";
+
     public static final String CIRCLE = "circle";
 }

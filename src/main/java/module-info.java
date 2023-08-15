@@ -13,4 +13,6 @@ module com.example.triovisiongame {
     exports com.example.triovisiongame;
     exports com.example.triovisiongame.controllers;
     opens com.example.triovisiongame.controllers to javafx.fxml;
+    exports com.example.triovisiongame.enums;
+    opens com.example.triovisiongame.enums to javafx.fxml;
 }

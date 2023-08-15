@@ -14,7 +14,7 @@
             <Font name="System Bold" size="16.0" />
         </font>
     </Label>
-    <Button layoutX="473.0" layoutY="4.0" mnemonicParsing="false" onAction="#onBtnInstructionsClick" prefHeight="25.0" prefWidth="121.0" text="Instructions">
+    <Button fx:id="btnInstructions" layoutX="473.0" layoutY="4.0" mnemonicParsing="false" onAction="#onBtnInstructionsClick" prefHeight="25.0" prefWidth="121.0" text="Instructions">
         <font>
             <Font name="System Bold" size="12.0" />
         </font>
@@ -31,7 +31,7 @@
                     <Font name="System Bold" size="12.0" />
                 </font>
             </Button>
-            <Label layoutX="93.0" layoutY="1.0" prefHeight="25.0" prefWidth="106.0" text="Player Options">
+            <Label layoutX="75.0" layoutY="-1.0" prefHeight="25.0" prefWidth="121.0" text="Player Dashboard">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
@@ -45,12 +45,12 @@
                     <Font name="System Bold" size="12.0" />
                 </font>
             </Button>
-            <Button layoutX="153.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Generate">
+            <Button fx:id="btnGenerate" layoutX="153.0" layoutY="27.0" mnemonicParsing="false" onAction="#onBtnGenerateClick" prefHeight="25.0" prefWidth="99.0" text="Generate">
                 <font>
                     <Font name="System Bold" size="12.0" />
                 </font>
             </Button>
-            <Label layoutX="93.0" layoutY="1.0" prefHeight="17.0" prefWidth="99.0" text="Game Options">
+            <Label layoutX="93.0" layoutY="-1.0" prefHeight="17.0" prefWidth="99.0" text="Game Options">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
