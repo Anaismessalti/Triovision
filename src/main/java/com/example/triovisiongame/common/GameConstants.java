@@ -28,4 +28,9 @@ public class GameConstants {
     public static final String SELECTED_CARD_BG = "-fx-background-color: #d68989; ";
 
     public static final String CIRCLE = "circle";
+
+    public static final int MARGIN = 25;
+
+    public static final int START_WIDTH = 50;
+    public static final int START_HEIGHT = 38;
 }

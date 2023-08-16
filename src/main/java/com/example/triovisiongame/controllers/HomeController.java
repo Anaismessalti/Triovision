@@ -1,9 +1,11 @@
 package com.example.triovisiongame.controllers;
 
 import com.example.triovisiongame.utils.TriovisionUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import static com.example.triovisiongame.common.GameConstants.*;
@@ -13,16 +15,27 @@ public class HomeController {
     public static boolean isIsGameCompleted = false;
     public static int cardsPlayed = 0;
     public static int p1Score = 0, p2Score = 0;
+    public static CardController selectedCard;
 
     @FXML
     private Pane gamePane;
-
     @FXML
     private Button btnInstructions;
 
     @FXML
     private Button btnStartGame;
 
+    @FXML
+    private Label p1ScoreLabel;
+
+    @FXML
+    private Label p2ScoreLabel;
+
+    @FXML
+    public Label p1ScoreValue;
+
+    @FXML
+    public Label p2ScoreValue;
     @FXML
     private CardController card01Controller;
     @FXML
@@ -111,4 +124,13 @@ public class HomeController {
         alert.show();
     }
 
+
+    @FXML
+    protected void onBtnPlayer1Click(ActionEvent actionEvent) {
+        p1ScoreLabel.setVisible(true);
+    }
+
+    @FXML
+    protected void onBtnPlayer2Click(ActionEvent actionEvent) {
+    }
 }
