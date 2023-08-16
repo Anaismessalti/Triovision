@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class TriovisionUtils {
 
@@ -32,11 +31,6 @@ public class TriovisionUtils {
         alert.show();
     }
 
-
-    public static int getRandNumInGivenRange(int min, int max) {
-        return new Random().nextInt(max - min + 1) + min;
-    }
-
     public static Integer findPieceInList(List<Piece> pieces, String circleId) {
         for (int i = 0; i < pieces.size(); i++) {
             if (pieces.get(i).getC().getId().equals(circleId)) {
@@ -56,20 +50,4 @@ public class TriovisionUtils {
         return null;
     }
 
-    public static double[] getNewPiecePosition(List<Piece> pieces, Piece p) {
-        double[] newPositionXY = new double[2];
-        for (Piece piece: pieces) {
-            double draggedX = p.getX() + 25;
-            double draggedY = p.getY() + 25;
-
-            if(piece.getC().getId().equals(p.getC().getId())) continue;
-
-            if(piece.getX() <= draggedX && piece.getY() <= draggedY) {
-                newPositionXY[0] = piece.getInitialX();
-                newPositionXY[1] = piece.getInitialY();
-            }
-        }
-
-        return newPositionXY;
-    }
 }

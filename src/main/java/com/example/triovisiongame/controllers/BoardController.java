@@ -151,7 +151,9 @@ public class BoardController implements Initializable {
 
         if (!isJumpedMoreThan1Cell(p)) {
             updateRowColumnIndex(p);
-            matchPattern(p);
+            matchPattern();
+            p.setX(p.getInitialX());
+            p.setY(p.getInitialY());
             generateBoard();
         }
     }
@@ -162,14 +164,6 @@ public class BoardController implements Initializable {
         newRow = (int) (p.getY() + START_HEIGHT + MARGIN) / CELL_HEIGHT;
         p.setBoardRow(newRow);
         p.setBoardColumn(newColumn);
-    }
-
-
-    private void placePieceInCorrectPosition(Piece p) {
-        double[] newPositionXY = TriovisionUtils.getNewPiecePosition(pieces, p);
-        p.setX(newPositionXY[0]);
-        p.setY(newPositionXY[1]);
-        p.draw();
     }
 
     private boolean isJumpedMoreThan1Cell(Piece p) {
@@ -187,7 +181,7 @@ public class BoardController implements Initializable {
         return false;
     }
 
-    private void matchPattern(Piece p) {
+    private void matchPattern() {
         boolean isMatched = true;
         for (int boardRow = 1; boardRow <= 2; boardRow++) {
             for (int boardCol = 1; boardCol <= 3; boardCol++) {
@@ -215,158 +209,4 @@ public class BoardController implements Initializable {
             System.out.println(HomeController.p1Score);
         }
     }
-
-
-    private void matchPattern3(Piece p) {
-        int startRow = p.getBoardRow(), startColumn = p.getBoardColumn();
-        int runningRow = startRow + 1;
-        int runningColumn = startColumn;
-
-        if (!colorMatched(p)) return;
-        Set<Piece> matchedPieces = runMatching(runningRow, runningColumn, 0);
-
-        if (HomeController.selectedCard.isPatternMatched()) {
-            HomeController.p1Score++;
-        }
-    }
-
-    private Set<Piece> runMatching(int runningRow, int runningColumn, int counter) {
-        Set<Piece> matchedPieces = new HashSet<>();
-        Piece adjacentPiece = TriovisionUtils.findPieceByRowColumn(pieces, runningRow++, runningColumn);
-        if (counter == 16) return matchedPieces;
-        counter++;
-
-        if (Objects.nonNull(adjacentPiece) && colorMatched(adjacentPiece)) {
-            matchedPieces.add(adjacentPiece);
-            runningRow++;
-            runningColumn--;
-            return runMatching(runningRow, runningColumn, counter);
-        } else {
-            return runMatching(runningRow--, runningColumn, counter);
-        }
-    }
-
-
-    private boolean colorMatched(Piece p) {
-        Paint[] paintArr = new Paint[3];
-        paintArr[0] = HomeController.selectedCard.circle1.getFill();
-        paintArr[1] = HomeController.selectedCard.circle2.getFill();
-        paintArr[2] = HomeController.selectedCard.circle3.getFill();
-
-        Paint colorToMatch = p.getC().getFill();
-        return paintArr[0].equals(colorToMatch) || paintArr[1].equals(colorToMatch) || paintArr[2].equals(colorToMatch);
-    }
-
-    private void matchPattern2(Piece p) {
-        boolean isMatched = false;
-
-        Paint[] paintArr = new Paint[3];
-        paintArr[0] = HomeController.selectedCard.circle1.getFill();
-        paintArr[1] = HomeController.selectedCard.circle2.getFill();
-        paintArr[2] = HomeController.selectedCard.circle3.getFill();
-
-        int circlePosition = getPositionOfMovedPiece(paintArr, p, HomeController.selectedCard) + 1;
-
-        int row = p.getBoardRow();
-        int column = p.getBoardColumn();
-        switch (circlePosition) {
-            case 1:
-                Piece c1SecondPiece = TriovisionUtils.findPieceByRowColumn(pieces, row + 1, column);
-                Piece c1ThirdPiece = TriovisionUtils.findPieceByRowColumn(pieces, row + 2, column - 1);
-                isMatched = paintArr[1].equals(c1SecondPiece.getC().getFill()) && paintArr[2].equals(c1ThirdPiece.getC().getFill());
-                break;
-            case 2:
-                Piece c2FirstPiece = TriovisionUtils.findPieceByRowColumn(pieces, row - 1, column);
-                Piece c2ThirdPiece = TriovisionUtils.findPieceByRowColumn(pieces, row + 1, column - 1);
-                isMatched = paintArr[0].equals(c2FirstPiece.getC().getFill()) && paintArr[2].equals(c2ThirdPiece.getC().getFill());
-                break;
-            case 3:
-                Piece c3FirstPiece = TriovisionUtils.findPieceByRowColumn(pieces, row - 1, column + 1);
-                Piece c3SecondPiece = TriovisionUtils.findPieceByRowColumn(pieces, row - 2, column + 1);
-                isMatched = paintArr[0].equals(c3FirstPiece.getC().getFill()) && paintArr[1].equals(c3SecondPiece.getC().getFill());
-                break;
-            default:
-        }
-
-        if (isMatched) {
-            HomeController.p1Score++;
-        }
-    }
-
-
-    public int getPositionOfMovedPiece(Paint[] paintArr, Piece piece, CardController selectedCard) {
-        boolean isTwoCirclesSame = false;
-        if (paintArr[0].equals(paintArr[1]) || paintArr[0].equals(paintArr[2]) || paintArr[1].equals(paintArr[2])) {
-            isTwoCirclesSame = true;
-        }
-
-        for (int i = 0; i < paintArr.length; i++) {
-            if (paintArr[i].equals(piece.getC().getFill())) {
-                if (!isTwoCirclesSame) return i;
-
-
-            }
-        }
-        return -1;
-    }
-
-
-    public boolean isImmediateAdjacent(Piece p, Circle circle) {
-        return (p.getX() + 25 <= circle.getTranslateX() || p.getY() + 25 <= circle.getTranslateY());
-    }
-
-    //   private void matchPattern1(Piece p) {
-//        Set<Node> patternList = new HashSet<>();
-//        boolean isMatched = false;
-//        List<Node> visibleCircles = boardPane.getChildren()
-//                .stream()
-//                .filter(node -> Objects.nonNull(node.getId()) && node.isVisible())
-//                .collect(Collectors.toList());
-//
-//        for (Node node : visibleCircles) {
-//            Circle circle = (Circle) node;
-//            if (matchColor(circle.getFill()) && isImmediateAdjacent(p, circle)) {
-//                patternList.add(circle);
-//            }
-//        }
-//
-//        System.out.println(patternList);
-//    }
-
-//    private void matchPattern2(Piece p) {
-//        boolean isMatched = false;
-//
-//        Paint[] paintArr = new Paint[3];
-//        paintArr[0] = HomeController.selectedCard.circle1.getFill();
-//        paintArr[1] = HomeController.selectedCard.circle2.getFill();
-//        paintArr[2] = HomeController.selectedCard.circle3.getFill();
-//
-//        int circlePosition = getPositionOfMovedPiece(paintArr, p.getC().getFill()) + 1;
-//
-//        int row = p.getBoardRow();
-//        int column = p.getBoardColumn();
-//        switch (circlePosition) {
-//            case 1:
-//                Piece c1SecondPiece = TriovisionUtils.findPieceByRowColumn(pieces, row + 1, column);
-//                Piece c1ThirdPiece = TriovisionUtils.findPieceByRowColumn(pieces, row + 2, column - 1);
-//                isMatched = paintArr[1].equals(c1SecondPiece.getC().getFill()) && paintArr[2].equals(c1ThirdPiece.getC().getFill());
-//                break;
-//            case 2:
-//                Piece c2FirstPiece = TriovisionUtils.findPieceByRowColumn(pieces, row - 1, column);
-//                Piece c2ThirdPiece = TriovisionUtils.findPieceByRowColumn(pieces, row + 1, column - 1);
-//                isMatched = paintArr[0].equals(c2FirstPiece.getC().getFill()) && paintArr[2].equals(c2ThirdPiece.getC().getFill());
-//                break;
-//            case 3:
-//                Piece c3FirstPiece = TriovisionUtils.findPieceByRowColumn(pieces, row - 1, column + 1);
-//                Piece c3SecondPiece = TriovisionUtils.findPieceByRowColumn(pieces, row - 2, column + 1);
-//                isMatched = paintArr[0].equals(c3FirstPiece.getC().getFill()) && paintArr[1].equals(c3SecondPiece.getC().getFill());
-//                break;
-//            default:
-//        }
-//
-//        if (isMatched) {
-//            HomeController.p1Score++;
-//        }
-//    }
-
 }
