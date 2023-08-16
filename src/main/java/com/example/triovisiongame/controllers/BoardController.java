@@ -189,8 +189,8 @@ public class BoardController implements Initializable {
 
     private void matchPattern(Piece p) {
         boolean isMatched = true;
-        for (int boardRow = 1; boardRow <= 3; boardRow++) {
-            for (int boardCol = 1; boardCol <= 2; boardCol++) {
+        for (int boardRow = 1; boardRow <= 2; boardRow++) {
+            for (int boardCol = 1; boardCol <= 3; boardCol++) {
                 isMatched = true;
                 for (int cardRow = 1; cardRow <= 3; cardRow++) {
                     for (int cardCol = 1; cardCol <= 2; cardCol++) {
