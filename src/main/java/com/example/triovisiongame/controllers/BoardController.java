@@ -152,7 +152,7 @@ public class BoardController implements Initializable {
         if (!isJumpedMoreThan1Cell(p)) {
             updateRowColumnIndex(p);
             matchPattern(p);
-            //generateBoard();
+            generateBoard();
         }
     }
 
@@ -189,19 +189,17 @@ public class BoardController implements Initializable {
 
     private void matchPattern(Piece p) {
         boolean isMatched = true;
-
-        for (int x = 1; x <= 3; x++) {
-            for (int y = 1; y <= 2; y++) {
+        for (int boardRow = 1; boardRow <= 3; boardRow++) {
+            for (int boardCol = 1; boardCol <= 2; boardCol++) {
                 isMatched = true;
-                for (int cx = 1; cx <= 2; cx++) {
-                    for (int cy = 1; cy <= 3; cy++) {
-                        Paint cardPieceColor = HomeController.selectedCard.getColorByIndex(cx, cy);
-                        if (cardPieceColor.equals(Color.TRANSPARENT)) continue;
-
+                for (int cardRow = 1; cardRow <= 3; cardRow++) {
+                    for (int cardCol = 1; cardCol <= 2; cardCol++) {
+                        Paint cardPieceColor = HomeController.selectedCard.getColorByIndex(cardRow, cardCol);
                         Paint boardPieceColor;
-                        Piece boardPiece = TriovisionUtils.findPieceByRowColumn(pieces, x + cx, y + cy);
+                        Piece boardPiece = TriovisionUtils.findPieceByRowColumn(pieces, boardRow + cardRow-1, boardCol + cardCol - 1);
                         boardPieceColor = Objects.isNull(boardPiece) ? Color.TRANSPARENT : boardPiece.getC().getFill();
 
+                        if (cardPieceColor.equals(Color.TRANSPARENT)) continue;
                         if (!cardPieceColor.equals(boardPieceColor)) isMatched = false;
                     }
                 }
