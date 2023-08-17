@@ -13,8 +13,6 @@ import static com.example.triovisiongame.common.GameConstants.SELECTED_CARD_BG;
 
 public class CardController {
     private boolean isSelected = false;
-    public boolean isCircle1Matched = false, isCircle2Matched = false, isCircle3Matched = false;
-
     @FXML
     public Circle circle1;
     public Piece piece1 = new Piece();
@@ -58,10 +56,6 @@ public class CardController {
         cardGrid.setStyle(SELECTED_CARD_BG);
         HomeController.cardsPlayed++;
         isSelected = true;
-    }
-
-    public boolean isPatternMatched() {
-        return isCircle1Matched && isCircle2Matched && isCircle3Matched;
     }
 
     public Paint getColorByIndex(int x, int y) {

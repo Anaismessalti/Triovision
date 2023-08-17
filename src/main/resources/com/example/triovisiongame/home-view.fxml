@@ -76,25 +76,5 @@
         <fx:include fx:id="card10" layoutX="150.0" layoutY="432.0" source="card-view.fxml" />
         <fx:include fx:id="card11" layoutX="250.0" layoutY="432.0" source="card-view.fxml" />
         <fx:include fx:id="card12" layoutX="350.0" layoutY="432.0" source="card-view.fxml" />
-      <Label fx:id="p1ScoreLabel" layoutX="7.0" layoutY="4.0" prefHeight="20.0" prefWidth="62.0" text="P1 Score">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="p2ScoreLabel" layoutX="472.0" layoutY="4.0" prefHeight="20.0" prefWidth="62.0" text="P2 Score">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="p1ScoreValue" layoutX="72.0" layoutY="4.0" prefHeight="20.0" prefWidth="37.0" style="-fx-border-color: #000000;">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="p2ScoreValue" layoutX="534.0" layoutY="4.0" prefHeight="20.0" prefWidth="37.0" style="-fx-border-color: #000000;">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
     </Pane>
 </Pane>

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -15,7 +16,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 import static com.example.triovisiongame.common.GameConstants.*;
 
@@ -41,6 +45,7 @@ public class BoardController implements Initializable {
                 r.setFill(Color.valueOf(ENABLE_BOARD_COLOR));
             }
         });
+
     }
 
     public void generateBoard() {
@@ -199,14 +204,32 @@ public class BoardController implements Initializable {
                 }
                 if(isMatched) break;
             }
-
             if(isMatched) break;
         }
 
+        updateScore(isMatched);
 
-        if (isMatched) {
-            HomeController.p1Score++;
-            System.out.println(HomeController.p1Score);
+    }
+
+    private void updateScore (boolean isMatched) {
+        if(isMatched) {
+            if(HomeController.isMultiPlayerSelected) {
+                if (HomeController.isPlayer1Playing) HomeController.p1Score++;
+                else HomeController.p2Score++;
+                changeTurns();
+            } else {
+                HomeController.p1Score++;
+                TriovisionUtils.showAlert("Your Score is: " + HomeController.p1Score);
+            }
         }
     }
+
+    public void changeTurns() {
+        HomeController.isPlayer1Playing = !HomeController.isPlayer1Playing;
+        HomeController.isPlayer2Playing = !HomeController.isPlayer2Playing;
+
+        if(HomeController.isPlayer1Playing) TriovisionUtils.showAlert("Player 1 playing now! \nPlayer 2 Score: " + HomeController.p2Score);
+        else TriovisionUtils.showAlert("Player 2 playing now! \nPlayer 1 Score: " + HomeController.p1Score);
+    }
+
 }

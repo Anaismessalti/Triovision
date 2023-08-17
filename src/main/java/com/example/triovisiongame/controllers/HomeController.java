@@ -11,36 +11,19 @@ import javafx.scene.layout.Pane;
 import static com.example.triovisiongame.common.GameConstants.*;
 
 public class HomeController {
-    public static boolean isGameStarted = false, isGameCompleted = false, isMultiPlayer = false, isPlayerSelected = false;
+    public static boolean isGameStarted = false, isGameCompleted = false, isMultiPlayerSelected = false,
+            isPlayerSelected = false, isPlayer1Playing, isPlayer2Playing;
     public static int cardsPlayed = 0;
     public static int p1Score = 0, p2Score = 0;
     public static CardController selectedCard;
-
     @FXML
     private Pane gamePane;
     @FXML
-    private Button btnInstructions;
-
-    @FXML
     private Button btnPlayer1;
-
     @FXML
     private Button btnPlayer2;
-
     @FXML
     private Button btnStartGame;
-
-    @FXML
-    private Label p1ScoreLabel;
-
-    @FXML
-    private Label p2ScoreLabel;
-
-    @FXML
-    public Label p1ScoreValue;
-
-    @FXML
-    public Label p2ScoreValue;
     @FXML
     private CardController card01Controller;
     @FXML
@@ -65,18 +48,18 @@ public class HomeController {
     private CardController card11Controller;
     @FXML
     private CardController card12Controller;
-
     @FXML
     private BoardController boardController;
 
-
     @FXML
     protected void onBtnStartGameClick() {
-        if(!isPlayerSelected) {
+        if (!isPlayerSelected) {
             TriovisionUtils.showAlert("Please selected player 1 or player 2 to start game.");
             return;
         }
 
+        isPlayer1Playing = true;
+        TriovisionUtils.showAlert("Player 1 Turn.");
         isGameStarted = true;
         btnStartGame.setDisable(true);
         gamePane.setStyle("-fx-background-color: #aad7fa; -fx-border-color: #000000;");
@@ -136,21 +119,21 @@ public class HomeController {
     @FXML
     protected void onBtnPlayer1Click(ActionEvent actionEvent) {
         isPlayerSelected = true;
-        p1ScoreLabel.setVisible(true);
-        btnPlayer1.setStyle(SELECTED_CARD_BG);
+        btnPlayer1.setStyle(SELECTED_CARD_BG + "-fx-border-color: #000000;");
         disablePlayerButtons();
     }
 
     @FXML
     protected void onBtnPlayer2Click(ActionEvent actionEvent) {
         isPlayerSelected = true;
-        p2ScoreLabel.setVisible(true);
+        isMultiPlayerSelected = true;
         disablePlayerButtons();
+        btnPlayer2.setStyle(SELECTED_CARD_BG + "-fx-border-color: #000000;");
+
     }
 
     private void disablePlayerButtons() {
         btnPlayer1.setDisable(true);
         btnPlayer2.setDisable(true);
     }
-
 }
